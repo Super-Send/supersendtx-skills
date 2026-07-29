@@ -62,8 +62,13 @@ Export `SUPERSENDTX_API_KEY=stx_…` in the environment where Claude Code runs.
 | Tool | Purpose |
 |------|---------|
 | `send_email` | `POST /emails` — `from`, `to`, `subject`, optional `html`/`text`/`reply_to` |
-| `apply_domain_dns` | Apply DNS (`cloudflare` or `godaddy`) |
-| `verify_domain` | Verify domain DNS |
+| `list_emails` / `get_email` | List or fetch sends |
+| `list_domains` / `create_domain` | Domain inventory |
+| `apply_domain_dns` / `verify_domain` | Apply DNS + verify |
+| `list_webhooks` / `create_webhook` / `delete_webhook` | Webhook endpoints |
+| `list_suppressions` / `add_suppression` / `remove_suppression` | Suppression list |
+| `list_templates` / `get_template` | Templates by id or alias |
+| `send_test_webhook_event` | `POST /emails/test` |
 | `get_deliverability` | `GET /deliverability` (`7d` or `30d`) |
 
 Sandbox rule: if `from` is `noreply@mail.supersendtx.com`, `to` must be the account email.
