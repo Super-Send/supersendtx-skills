@@ -27,7 +27,7 @@ For product API patterns (sandbox, domains, errors), also load the `supersendtx`
 
 ## Install — Cursor
 
-`.cursor/mcp.json` or `~/.cursor/mcp.json`:
+`.cursor/mcp.json` or `~/.cursor/mcp.json` (stdio):
 
 ```json
 {
@@ -45,6 +45,14 @@ For product API patterns (sandbox, domains, errors), also load the `supersendtx`
 
 Restart Cursor after editing. The dashboard **Install in Cursor** button can deeplink a pre-filled config.
 
+### Local HTTP mode
+
+```bash
+npx -y supersendtx-mcp --http --port 3000
+```
+
+Authenticate each request with `Authorization: Bearer stx_…`. Endpoint: `http://127.0.0.1:3000/mcp`.
+
 ---
 
 ## Install — Claude Code
@@ -53,7 +61,7 @@ Restart Cursor after editing. The dashboard **Install in Cursor** button can dee
 claude mcp add --transport stdio supersendtx -- npx -y supersendtx-mcp
 ```
 
-Export `SUPERSENDTX_API_KEY=stx_…` in the environment where Claude Code runs.
+Export `SUPERSENDTX_API_KEY=stx_…` in the environment where Claude Code runs. For HTTP, start `--http` and use `claude mcp add --transport http …`.
 
 ---
 
