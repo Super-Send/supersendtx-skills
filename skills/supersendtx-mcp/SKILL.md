@@ -2,8 +2,9 @@
 name: supersendtx-mcp
 description: >-
   Use when installing or configuring the SuperSend TX MCP server for Cursor,
-  Claude Code, or other MCP clients — supersendtx-mcp, stdio transport,
-  SUPERSENDTX_API_KEY, send_email, domain apply/verify, deliverability tools.
+  Claude Code, or other MCP clients — supersendtx-mcp, stdio, local --http,
+  hosted https://mcp.supersendtx.com/mcp, SUPERSENDTX_API_KEY / Bearer stx_,
+  send_email, domain apply/verify, deliverability tools.
 license: MIT
 metadata:
   author: supersendtx
@@ -53,6 +54,23 @@ npx -y supersendtx-mcp --http --port 3000
 
 Authenticate each request with `Authorization: Bearer stx_…`. Endpoint: `http://127.0.0.1:3000/mcp`.
 
+### Hosted remote MCP
+
+```json
+{
+  "mcpServers": {
+    "supersendtx": {
+      "url": "https://mcp.supersendtx.com/mcp",
+      "headers": {
+        "Authorization": "Bearer stx_your_key_here"
+      }
+    }
+  }
+}
+```
+
+No local process. Dashboard **Copy hosted MCP JSON** pre-fills the key. OAuth for remote clients is a follow-up; Bearer works today.
+
 ---
 
 ## Install — Claude Code
@@ -61,7 +79,7 @@ Authenticate each request with `Authorization: Bearer stx_…`. Endpoint: `http:
 claude mcp add --transport stdio supersendtx -- npx -y supersendtx-mcp
 ```
 
-Export `SUPERSENDTX_API_KEY=stx_…` in the environment where Claude Code runs. For HTTP, start `--http` and use `claude mcp add --transport http …`.
+Export `SUPERSENDTX_API_KEY=stx_…` in the environment where Claude Code runs. For HTTP, use local `--http` or hosted `https://mcp.supersendtx.com/mcp` with Bearer headers.
 
 ---
 
