@@ -109,6 +109,7 @@ Explain when the customer still needs DNS or registrar access.
 ## Templates and React
 
 - Send with a published template: `template` (id or alias) + variables — mutually exclusive with `html` / `text` / `react`
+- Starters (dashboard or `POST /templates/from-starter`): `password-reset`, `email-verification`, `welcome`, `invoice`, `team-invite` — then `template: { id: "password-reset", variables: { name, reset_url } }`
 - React Email: pass `react: <Component />` after `npm install @react-email/render react`; SDK compiles to HTML before `POST /emails`. Guide: https://docs.supersendtx.com/guides/react-email
 - Do not fork or reimplement React Email — author/preview with React Email’s tooling, send with SuperSend TX
 
