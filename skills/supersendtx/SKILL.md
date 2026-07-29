@@ -29,7 +29,7 @@ Machine-readable docs: [llms.txt](https://docs.supersendtx.com/llms.txt) · [llm
 
 Related skills: `supersendtx-mcp`, `supersendtx-cli`, `email-best-practices`.
 
-For React Email projects, use React Email’s own tooling to author/preview, then send with SuperSend TX (`react` option or rendered HTML). Do not rebuild React Email.
+For React Email projects, use React Email’s own tooling to author/preview, then send with SuperSend TX (`react` option or rendered HTML). Guide: https://docs.supersendtx.com/guides/react-email. Do not rebuild React Email.
 
 ---
 
@@ -109,7 +109,8 @@ Explain when the customer still needs DNS or registrar access.
 ## Templates and React
 
 - Send with a published template: `template` (id or alias) + variables — mutually exclusive with `html` / `text` / `react`
-- React Email: pass `react: <Component />` after `npm install @react-email/render react`; SDK compiles to HTML before `POST /emails`
+- React Email: pass `react: <Component />` after `npm install @react-email/render react`; SDK compiles to HTML before `POST /emails`. Guide: https://docs.supersendtx.com/guides/react-email
+- Do not fork or reimplement React Email — author/preview with React Email’s tooling, send with SuperSend TX
 
 ---
 
